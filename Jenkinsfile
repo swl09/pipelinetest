@@ -9,3 +9,12 @@ node {
     def image = docker.build('swilly09/swltest', '.')
 }
 
+node {
+    /* ... */
+    stage 'Push image'
+    docker.withRegistry("https://registry.hub.docker.com", "swilly09/******") {
+        image.push()
+    }
+}
+
+
